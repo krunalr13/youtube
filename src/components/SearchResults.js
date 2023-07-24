@@ -2,6 +2,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import { YOUTUBE_API_URL, YOUTUBE_API_KEY } from "../utils/constants";
 import { useEffect, useState } from "react";
 import SearchResultCard from "./SearchResultCard";
+import SearchResultsShimmer from "./SearchResultsShimmer";
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
@@ -24,18 +25,25 @@ const SearchResults = () => {
 
   useEffect(() => {
     getSearchResults();
-  }, []);
+  }, [searchParams]);
 
   return (
     <div className="myt-20 overflow-y-scroll h-[calc(100vh-80px)]">
-      {videos.map(
-        (video) =>
-          video.id.videoId && (
-            <Link key={video.id.videoId} to={`/watch?v=${video.id.videoId}`}>
-              <SearchResultCard video={video} />
-            </Link>
+      {videos.length > 0
+        ? videos.map(
+            (video) =>
+              video.id.videoId && (
+                <Link
+                  key={video.id.videoId}
+                  to={`/watch?v=${video.id.videoId}`}
+                >
+                  <SearchResultCard video={video} />
+                </Link>
+              )
           )
-      )}
+        : Array(20)
+            .fill("")
+            .map(() => <SearchResultsShimmer />)}
     </div>
   );
 };

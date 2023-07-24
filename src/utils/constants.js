@@ -3,8 +3,8 @@ export const YOUTUBE_API_URL = "https://youtube.googleapis.com/v3";
 
 export const VIDEO_CATEGORIES = [
   {
-    name: "All",
-    videoCategoryId: "",
+    name: "Film & Animation",
+    videoCategoryId: "1",
   },
   {
     name: "Gaming",
@@ -13,10 +13,6 @@ export const VIDEO_CATEGORIES = [
   {
     name: "Cars",
     videoCategoryId: "2",
-  },
-  {
-    name: "Film & Animation",
-    videoCategoryId: "1",
   },
   {
     name: "People & Blogs",

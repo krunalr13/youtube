@@ -27,12 +27,16 @@ const Comments = ({ videoId }) => {
   return (
     <div>
       <h2 className="p-2 m-4 font-bold">Comments </h2>
-      {comments.map((comment) => (
-        <CommentCard
-          key={comment.id}
-          comment={comment?.snippet?.topLevelComment?.snippet}
-        />
-      ))}
+      {comments.length > 0 ? (
+        comments.map((comment) => (
+          <CommentCard
+            key={comment.id}
+            comment={comment?.snippet?.topLevelComment?.snippet}
+          />
+        ))
+      ) : (
+        <div className="px-4 m-2">No comments yet</div>
+      )}
     </div>
   );
 };
