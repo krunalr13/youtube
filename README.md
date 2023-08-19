@@ -1,1 +1,1 @@
-# This is a YouTube clone made using React, Redux and Youtube APIs.
+# This is a YouTube clone made using React, Redux, Tailwind CSS and Youtube APIs.
